@@ -1,3 +1,13 @@
+# Al's Conway's Life on Hackaday Belgrade Badge
+
+(See original README below)
+
+Simple game of life. Use the down arrow to start. Up arrow pauses. Down arrow
+restarts with a random board. In addition, if the game board stops changing,
+the game will restart with a random board automatically. Left and right
+arrows change generation speed.
+
+
 # Hackaday Belgrade Badge Demoscene
 
 This is a barebones C framework for the Hackaday Belgrade Badge
