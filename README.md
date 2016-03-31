@@ -7,6 +7,9 @@ restarts with a random board. In addition, if the game board stops changing,
 the game will restart with a random board automatically. Left and right
 arrows change generation speed.
 
+Video: https://www.youtube.com/watch?v=1SU_792ONzs
+
+
 
 # Hackaday Belgrade Badge Demoscene
 
