@@ -9,6 +9,7 @@ arrows change generation speed.
 
 Video: https://www.youtube.com/watch?v=1SU_792ONzs
 
+Project page: https://hackaday.io/project/10632-conways-life-on-a-hackaday-belgrade-badge
 
 
 # Hackaday Belgrade Badge Demoscene
