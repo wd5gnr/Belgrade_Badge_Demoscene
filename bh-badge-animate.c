@@ -19,7 +19,7 @@ void init(void *u,int w,int h)
 #if 0
   unsigned (*univ)[h][w]=u;
 #else
-  unsigned (*univ)[8][16]=u;  // hardcode for compilers w/o cstd99
+  unsigned (*univ)[16][8]=u;  // hardcode for compilers w/o cstd99
 #endif
   for_xy (*univ)[y][x]=rand()<RAND_MAX / 10 ? 1 : 0;
 }
