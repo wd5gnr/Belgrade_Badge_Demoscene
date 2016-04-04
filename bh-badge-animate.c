@@ -6,7 +6,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
  
 // Helper macros
 #define for_x for (int x = 0; x < w; x++)
@@ -17,7 +16,11 @@
 // Randomize board
 void init(void *u,int w,int h)
 {
+#if 0
   unsigned (*univ)[h][w]=u;
+#else
+  unsigned (*univ)[8][16]=u;  // hardcode for compilers w/o cstd99
+#endif
   for_xy (*univ)[y][x]=rand()<RAND_MAX / 10 ? 1 : 0;
 }
 
