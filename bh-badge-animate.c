@@ -12,21 +12,20 @@
 #define for_y for (int y = 0; y < h; y++)
 #define for_xy for_x for_y
 
+#define w 8
+#define h 16
+
 
 // Randomize board
-void init(void *u,int w,int h)
+void init(void *u)
 {
-#if 0
   unsigned (*univ)[h][w]=u;
-#else
-  unsigned (*univ)[16][8]=u;  // hardcode for compilers w/o cstd99
-#endif
   for_xy (*univ)[y][x]=rand()<RAND_MAX / 10 ? 1 : 0;
 }
 
 
 // Display board 
-void show(void *u, int w, int h, unsigned *speed)
+void show(void *u, unsigned *speed)
 {
 
 	int (*univ)[w] = u;
@@ -64,7 +63,7 @@ void show(void *u, int w, int h, unsigned *speed)
 		  } while (k!=UP && k!=ESCAPE);  // unpause
 		break;
 	      case (DOWN): // new game
-		init(u,w,h);
+		init(u);
 		break;
 	      }
 	    // clever way to do time tick withou overflow problems
@@ -77,7 +76,7 @@ void show(void *u, int w, int h, unsigned *speed)
 
  
 // Compute next generation (with apologies to Picard)
-void evolve(void *u, int w, int h)
+void evolve(void *u)
 {
 	unsigned (*univ)[w] = u;
 	unsigned new[h][w];
@@ -97,19 +96,19 @@ void evolve(void *u, int w, int h)
 	
 	for_y for_x if (univ[y][x]!=new[y][x]) change=1;
 	if (change) for_y for_x univ[y][x] = new[y][x];
-	else init(u,w,h);
+	else init(u);
 }
  
 
 // Set up game
-void game(int w, int h)
+void game()
 {
   unsigned univ[h][w];  // game board
   unsigned speed=250;  // delay value
-  init(univ,w,h);       // Initialize
+  init(univ);       // Initialize
   while (1) {           // main loop
-    show(univ, w, h, &speed);   // display
-    evolve(univ, w, h); // next gen
+    show(univ, &speed);   // display
+    evolve(univ); // next gen
   }
 }
  
@@ -127,7 +126,7 @@ void animateBadge(void) {
 	 return;
        case (DOWN):    // set up new game on down key
 	 srand(seed);
-	 game(8,16);
+	 game();
 	 break;
        }
      }
